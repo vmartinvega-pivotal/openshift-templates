@@ -37,7 +37,7 @@ your current project. Instantiate a new database service with this command:
 Replace `/path/to/template.json` with an appropriate path, that can be either a
 local path or an URL. Example:
 
-    $ oc new-app https://raw.githubusercontent.com/openshift/origin/master/examples/db-templates/mongodb-ephemeral-template.json
+    $ oc new-app mongodb-ephemeral-template.json
 
 The parameters listed in the output above can be tweaked by specifying values in
 the command line with the `-p` option:
