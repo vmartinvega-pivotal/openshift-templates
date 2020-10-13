@@ -42,7 +42,7 @@ local path or an URL. Example:
 The parameters listed in the output above can be tweaked by specifying values in
 the command line with the `-p` option:
 
-    $ oc new-app examples/db-templates/mongodb-ephemeral-template.json -p DATABASE_SERVICE_NAME=mydb -p MONGODB_USER=default
+    $ oc new-app postgresql-ephemeral-template.json -p POSTGRESQL_PASSWORD=postgres -p NAMESPACE=default -p POSTGRESQL_USER=postgres -p POSTGRESQL_DATABASE=security
 
 Note that the persistent template requires an existing persistent volume,
 otherwise the deployment won't ever succeed.
@@ -59,26 +59,9 @@ later. Create the template with this command:
 Replace `/path/to/template.json` with an appropriate path, that can be either a
 local path or an URL. Example:
 
-    $ oc create -f https://raw.githubusercontent.com/openshift/origin/master/examples/db-templates/mongodb-ephemeral-template.json
+    $ oc create -f mongodb-ephemeral-template.json
     template "mongodb-ephemeral" created
 
 The new template is now available to use in the Web Console or with `oc
 new-app`.
 
-
-## Available database example templates
-
-* [MariaDB](https://raw.githubusercontent.com/openshift/library/master/arch/x86_64/official/mariadb/templates/mariadb-ephemeral.json) - For more information see the [product documentation](https://docs.openshift.org/latest/using_images/db_images/mariadb.html).
-* [MariaDB Persistent](https://raw.githubusercontent.com/openshift/library/master/arch/x86_64/official/mariadb/templates/mariadb-persistent.json) - For more information see the [product documentation](https://docs.openshift.org/latest/using_images/db_images/mariadb.html).
-* [MongoDB](https://raw.githubusercontent.com/openshift/library/master/arch/x86_64/official/mongodb/templates/mongodb-ephemeral.json) - For more information see the [product documentation](https://docs.openshift.org/latest/using_images/db_images/mongodb.html).
-* [MongoDB Persistent](https://raw.githubusercontent.com/openshift/library/master/arch/x86_64/official/mongodb/templates/mongodb-persistent.json) - For more information see the [product documentation](https://docs.openshift.org/latest/using_images/db_images/mongodb.html).
-* [MySQL](https://raw.githubusercontent.com/openshift/library/master/arch/x86_64/official/mysql/templates/mysql-ephemeral.json) - For more information see the [product documentation](https://docs.openshift.org/latest/using_images/db_images/mysql.html).
-* [MySQL Persistent](https://raw.githubusercontent.com/openshift/library/master/arch/x86_64/official/mysql/templates/mysql-persistent.json) - For more information see the [product documentation](https://docs.openshift.org/latest/using_images/db_images/mysql.html).
-* [PostgreSQL](https://raw.githubusercontent.com/openshift/library/master/arch/x86_64/official/postgresql/templates/postgresql-ephemeral.json) - For more information see the [product documentation](https://docs.openshift.org/latest/using_images/db_images/postgresql.html).
-* [PostgreSQL Persistent](https://raw.githubusercontent.com/openshift/library/master/arch/x86_64/official/postgresql/templates/postgresql-persistent.json) - For more information see the [product documentation](https://docs.openshift.org/latest/using_images/db_images/postgresql.html).
-* [Redis](https://raw.githubusercontent.com/openshift/library/master/arch/x86_64/official/redis/templates/redis-ephemeral.json) - For more information see the [image documentation](https://github.com/sclorg/redis-container/blob/master/README.md).
-* [Redis Persistent](https://raw.githubusercontent.com/openshift/library/master/arch/x86_64/official/redis/templates/redis-persistent.json) - For more information see the [image documentation](https://github.com/sclorg/redis-container/blob/master/README.md).
-
-Note: This file is processed by `hack/update-external-examples.sh`. New examples
-must follow the exact syntax of the existing entries. Files in this directory
-are automatically pulled down, do not modify/add files to this directory.
