@@ -9,6 +9,13 @@ the Web Console or the CLI.
 The examples can also be tweaked to create new templates.
 
 
+## Service Account
+Create a service account with admin rights to avoid issues
+```
+oc create serviceaccount mysvcacct
+oc adm policy add-scc-to-user anyuid system:serviceaccount:myproject:mysvcacct
+```
+
 ## Ephemeral vs. Persistent
 
 For each supported database, there are two template files.
