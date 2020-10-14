@@ -138,7 +138,7 @@
                                         }
                                     }
                                 ],
-                                "image": " ",
+                                "image": "postgres:${POSTGRESQL_VERSION}",
                                 "imagePullPolicy": "IfNotPresent",
                                 "livenessProbe": {
                                     "exec": {
@@ -195,27 +195,7 @@
                             }
                         ]
                     }
-                },
-                "triggers": [
-                    {
-                        "imageChangeParams": {
-                            "automatic": true,
-                            "containerNames": [
-                                "postgresql"
-                            ],
-                            "from": {
-                                "kind": "ImageStreamTag",
-                                "name": "postgresql:${POSTGRESQL_VERSION}",
-                                "namespace": "${NAMESPACE}"
-                            },
-                            "lastTriggeredImage": ""
-                        },
-                        "type": "ImageChange"
-                    },
-                    {
-                        "type": "ConfigChange"
-                    }
-                ]
+                }
             },
             "status": {}
         }
